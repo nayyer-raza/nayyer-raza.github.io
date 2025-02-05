@@ -386,10 +386,10 @@
 
 <h1 id="gwskynet-multi">GWSkyNet-Multi</h1>
 <p>GWSkyNet-Multi II is a multi-class neural network model developed for the classification of candidate gravitational-wave events detected by the LIGO and Virgo observatories.</p>
-<p>The model uses limited information released in the low-latency public alerts to produce prediction probabilities indicating whether an event is a merger of two black holes (BBH), a merger of a neutron star and a black hole (NSBH), a merger of two neutron stars (BNS), or a non-astrophysical transient noise known as a glitch. This classification facilitates time-sensitive decisions about whether to perform electromagnetic follow-up of candidate events during LIGO-Virgo-KAGRA (LVK) observing runs.</p>
+<p>The model uses limited information released in the low-latency public alerts to produce prediction probabilities indicating whether an event is a merger of two black holes (BBH), a merger of a neutron star and a black hole (NSBH), a merger of two neutron stars (BNS), or a non-astrophysical detector noise transient known as a glitch. This classification facilitates time-sensitive decisions about whether to perform electromagnetic follow-up of candidate events during LIGO-Virgo-KAGRA (LVK) observing runs.</p>
 <p>The details of the GWSkyNet-Multi II model can be found in <a href="https://www.arxiv.org/abs/2502.00297">Raza et al. (2025)</a>. Details of earlier versions of the model and its inner workings are described in <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ac5019">Abbott et al. (2022)</a> and <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad13ea">Raza et al. (2024)</a>.</p>
 <h1 id="gwskynet-multi-ii-predictions">GWSkyNet-Multi II Predictions</h1>
-<p>The model predictions for all events since the start of LVK O4 can be found in the table below. A csv file for the table can be found <a download="all_events_predictions.csv" href="media/all_events_predictions.csv">here</a>.</p>
+<p>The model predictions for all multi-detector CBC candidate events since the start of the fourth observing run (O4) can be found in the table below. For each candidate event the GWSkyNet-Multi II predicted probability for each class (and the associated uncertainty) is provided, along with a classification label based on the highest probability, and the inputs to the model determined from the BAYESTAR localization. A csv file for the predictions table can be found <a download="all_events_predictions.csv" href="media/all_events_predictions.csv">here</a>.</p>
 <table>
 <thead>
 <tr>
