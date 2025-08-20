@@ -1,7 +1,7 @@
 Event ID,Significant,Glitch Prob (%),BBH Prob (%),NSBH Prob (%),BNS Prob (%),Classification,Glitch Prob Err (%),BBH Prob Err (%),NSBH Prob Err (%),BNS Prob Err (%),Detectors,Distance Mean (Mpc),Distance StDev (Mpc),Sky Area 90% (deg^2),Log Volume 90% (Mpc^3),Log BCI,Log BSN
 S250818t,True,0.0,98.0,1.0,0.0,BBH,0.0,1.0,1.0,0.0,HLV,1311.0,350.0,377.0,8.44,6.3,22.3
 S250818o,False,77.0,0.0,17.0,6.0,Glitch,10.0,0.0,8.0,5.0,HLV,587.0,176.0,1355.0,7.98,7.6,9.8
-S250818k,False,96.0,0.0,0.0,4.0,Glitch,4.0,0.0,0.0,4.0,HLV,259.0,74.0,786.0,6.68,8.8,11.7
+S250818k,True,96.0,0.0,0.0,4.0,Glitch,4.0,0.0,0.0,4.0,HLV,259.0,74.0,786.0,6.68,8.8,11.7
 S250818h,False,22.0,78.0,0.0,0.0,BBH,10.0,10.0,0.0,0.0,HLV,2860.0,868.0,1518.0,10.11,6.0,7.2
 S250817fb,False,86.0,14.0,0.0,0.0,Glitch,11.0,11.0,0.0,0.0,HLV,12829.0,5571.0,11222.0,13.21,0.5,1.9
 S250817dm,False,19.0,1.0,76.0,3.0,NSBH,19.0,1.0,18.0,5.0,HLV,602.0,227.0,2035.0,8.25,1.4,8.0
