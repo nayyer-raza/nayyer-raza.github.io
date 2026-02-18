@@ -12,7 +12,7 @@
         <meta name="author" content="Nayyer Raza (nayyer.raza@mail.mcgill.ca)">
       
       
-        <link rel="canonical" href="https://nayyer-raza.github.io/projects/GWSkyNet-Multi/">
+        <link rel="canonical" href="https://nayyer-raza.github.io/projects/GWSkyNet-MassGap/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>GWSkyNet-Multi - Nayyer Raza</title>
+        <title>GWSkyNet-MassGap - Nayyer Raza</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gwskynet-multi" class="md-skip">
+        <a href="#gwskynet-massgap" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GWSkyNet-Multi
+              GWSkyNet-MassGap
             
           </span>
         </div>
@@ -384,27 +384,20 @@
                   
 
 
-<h1 id="gwskynet-multi">GWSkyNet-Multi</h1>
-<p>GWSkyNet-Multi is a multi-class neural network model developed for the classification of candidate gravitational-wave events detected by the LIGO and Virgo observatories.</p>
-<p>The model uses limited information released in the low-latency public alerts to produce prediction probabilities indicating whether an event is a merger of two black holes (BBH), a merger of a neutron star and a black hole (NSBH), a merger of two neutron stars (BNS), or a non-astrophysical detector noise transient known as a glitch. This classification facilitates time-sensitive decisions about whether to perform electromagnetic follow-up of candidate events during LIGO-Virgo-KAGRA (LVK) observing runs.</p>
-<p>Details of the latest GWSkyNet-Multi II model can be found in <a href="https://www.arxiv.org/abs/2502.00297">Raza et al. (2025)</a>. The model, associated scripts, and instructions on how to use them can be found in the repository <a href="https://github.com/nayyer-raza/GWSkyNet-Multi">here</a>. Details of earlier versions of the model and its inner workings are described in <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ac5019">Abbott et al. (2022)</a> and <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad13ea">Raza et al. (2024)</a>.</p>
+<h1 id="gwskynet-massgap">GWSkyNet-MassGap</h1>
+<p>GWSkyNet-MassGap is an extension of the <a href="../GWSkyNet-Multi/">GWSkyNet-Multi</a> neural network framework and predicts the probability that a candidate binary merger event has a component in the lower mass gap and the probability that it has a component which is a neutron star, assuming that the source is astrophysical (i.e., not a glitch). The predictions facilitate time-sensitive decisions about whether to perform electromagnetic follow-up of candidate events during LIGO-Virgo-KAGRA (LVK) observing runs.</p>
 <h1 id="o4-predictions">O4 Predictions</h1>
-<p>The model predictions for all significant multi-detector CBC candidate events since the start of the fourth observing run (O4) can be found in the table below. For each candidate event the GWSkyNet-Multi II predicted probability for each class (and the associated uncertainty) is provided, along with a classification label based on the highest probability, and the inputs to the model determined from the BAYESTAR localization.</p>
-<p>A csv file for the predictions table, which includes predictions for sub-threshold events, can be found <a download="all_events_predictions.csv" href="media/all_events_predictions.csv">here</a>.</p>
+<p>The model predictions for all significant multi-detector CBC candidate events since the start of the fourth observing run (O4) can be found in the table below. For each candidate event the GWSkyNet-MassGap predicted probability for MassGap and NS (and the associated uncertainty) is provided, along with the inputs to the model determined from the BAYESTAR localization.</p>
+<p>A csv file for the predictions table can be found <a download="significant_events_predictions.csv" href="media/significant_events_predictions.csv">here</a>.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">Event ID</th>
 <th style="text-align: left;">Significant</th>
-<th style="text-align: right;">Glitch Prob (%)</th>
-<th style="text-align: right;">BBH Prob (%)</th>
-<th style="text-align: right;">NSBH Prob (%)</th>
-<th style="text-align: right;">BNS Prob (%)</th>
-<th style="text-align: left;">Classification</th>
-<th style="text-align: right;">Glitch Prob Err (%)</th>
-<th style="text-align: right;">BBH Prob Err (%)</th>
-<th style="text-align: right;">NSBH Prob Err (%)</th>
-<th style="text-align: right;">BNS Prob Err (%)</th>
+<th style="text-align: right;">MassGap Prob (%)</th>
+<th style="text-align: right;">NS Prob (%)</th>
+<th style="text-align: right;">MassGap Prob Err (%)</th>
+<th style="text-align: right;">NS Prob Err (%)</th>
 <th style="text-align: left;">Detectors</th>
 <th style="text-align: right;">Distance Mean (Mpc)</th>
 <th style="text-align: right;">Distance StDev (Mpc)</th>
@@ -418,12 +411,7 @@
 <tr>
 <td style="text-align: left;">S251117dq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -439,11 +427,6 @@
 <td style="text-align: left;">S251116en</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -458,15 +441,10 @@
 <tr>
 <td style="text-align: left;">S251112cm</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">98</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">8</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">96</td>
 <td style="text-align: right;">29</td>
@@ -478,12 +456,7 @@
 <tr>
 <td style="text-align: left;">S251108fi</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -498,15 +471,10 @@
 <tr>
 <td style="text-align: left;">S251108dn</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1165</td>
 <td style="text-align: right;">309</td>
@@ -518,12 +486,7 @@
 <tr>
 <td style="text-align: left;">S251105aj</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -538,14 +501,9 @@
 <tr>
 <td style="text-align: left;">S251103f</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">2158</td>
@@ -558,12 +516,7 @@
 <tr>
 <td style="text-align: left;">S251031cq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -578,15 +531,10 @@
 <tr>
 <td style="text-align: left;">S251026bn</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1254</td>
 <td style="text-align: right;">349</td>
@@ -598,13 +546,8 @@
 <tr>
 <td style="text-align: left;">S251021u</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -618,11 +561,6 @@
 <tr>
 <td style="text-align: left;">S251018bi</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -638,15 +576,10 @@
 <tr>
 <td style="text-align: left;">S251017di</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">4</td>
@@ -658,14 +591,9 @@
 <tr>
 <td style="text-align: left;">S251014cn</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">610</td>
@@ -678,15 +606,10 @@
 <tr>
 <td style="text-align: left;">S251013x</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1946</td>
 <td style="text-align: right;">505</td>
@@ -698,15 +621,10 @@
 <tr>
 <td style="text-align: left;">S251006dd</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">706</td>
 <td style="text-align: right;">151</td>
@@ -718,15 +636,10 @@
 <tr>
 <td style="text-align: left;">S251003at</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">100</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">153</td>
 <td style="text-align: right;">50</td>
@@ -738,13 +651,8 @@
 <tr>
 <td style="text-align: left;">S250929c</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">91</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -758,13 +666,8 @@
 <tr>
 <td style="text-align: left;">S250927cy</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -778,13 +681,8 @@
 <tr>
 <td style="text-align: left;">S250927ck</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">97</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -798,15 +696,10 @@
 <tr>
 <td style="text-align: left;">S250917aq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">687</td>
 <td style="text-align: right;">182</td>
@@ -818,13 +711,8 @@
 <tr>
 <td style="text-align: left;">S250912f</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -838,15 +726,10 @@
 <tr>
 <td style="text-align: left;">S250911ac</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">94</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1102</td>
 <td style="text-align: right;">300</td>
@@ -858,15 +741,10 @@
 <tr>
 <td style="text-align: left;">S250910b</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">100</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">45</td>
@@ -878,15 +756,10 @@
 <tr>
 <td style="text-align: left;">S250908y</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">1280</td>
 <td style="text-align: right;">403</td>
@@ -898,15 +771,10 @@
 <tr>
 <td style="text-align: left;">S250906ca</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">95</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">39</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1195</td>
 <td style="text-align: right;">307</td>
@@ -918,12 +786,7 @@
 <tr>
 <td style="text-align: left;">S250904cv</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -939,11 +802,6 @@
 <td style="text-align: left;">S250904br</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -958,12 +816,7 @@
 <tr>
 <td style="text-align: left;">S250904ae</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -978,14 +831,9 @@
 <tr>
 <td style="text-align: left;">S250901cb</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1960</td>
@@ -998,15 +846,10 @@
 <tr>
 <td style="text-align: left;">S250830bp</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">429</td>
 <td style="text-align: right;">100</td>
@@ -1018,11 +861,6 @@
 <tr>
 <td style="text-align: left;">S250830m</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1038,15 +876,10 @@
 <tr>
 <td style="text-align: left;">S250827fo</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">76</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1064</td>
 <td style="text-align: right;">295</td>
@@ -1058,14 +891,9 @@
 <tr>
 <td style="text-align: left;">S250827l</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">2132</td>
@@ -1078,15 +906,10 @@
 <tr>
 <td style="text-align: left;">S250818t</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1311</td>
 <td style="text-align: right;">350</td>
@@ -1098,15 +921,10 @@
 <tr>
 <td style="text-align: left;">S250818t</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1311</td>
 <td style="text-align: right;">350</td>
@@ -1118,15 +936,10 @@
 <tr>
 <td style="text-align: left;">S250818k</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">96</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">259</td>
 <td style="text-align: right;">74</td>
@@ -1138,13 +951,8 @@
 <tr>
 <td style="text-align: left;">S250814bg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1158,14 +966,9 @@
 <tr>
 <td style="text-align: left;">S250813k</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">932</td>
@@ -1178,14 +981,9 @@
 <tr>
 <td style="text-align: left;">S250813k</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">932</td>
@@ -1198,15 +996,10 @@
 <tr>
 <td style="text-align: left;">S250810ck</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">628</td>
 <td style="text-align: right;">164</td>
@@ -1219,12 +1012,7 @@
 <td style="text-align: left;">S250802dn</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -1238,14 +1026,9 @@
 <tr>
 <td style="text-align: left;">S250727dc</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1172</td>
@@ -1258,12 +1041,7 @@
 <tr>
 <td style="text-align: left;">S250727cl</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1279,11 +1057,6 @@
 <td style="text-align: left;">S250726ak</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1298,14 +1071,9 @@
 <tr>
 <td style="text-align: left;">S250725l</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">2186</td>
@@ -1318,15 +1086,10 @@
 <tr>
 <td style="text-align: left;">S250725j</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">71</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">478</td>
 <td style="text-align: right;">107</td>
@@ -1338,15 +1101,10 @@
 <tr>
 <td style="text-align: left;">S250720j</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">20</td>
 <td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">140</td>
 <td style="text-align: right;">46</td>
@@ -1359,12 +1117,7 @@
 <td style="text-align: left;">S250712cd</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1378,13 +1131,8 @@
 <tr>
 <td style="text-align: left;">S250711q</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">92</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1398,15 +1146,10 @@
 <tr>
 <td style="text-align: left;">S250705cb</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">96</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1209</td>
 <td style="text-align: right;">336</td>
@@ -1418,15 +1161,10 @@
 <tr>
 <td style="text-align: left;">S250704ab</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">536</td>
 <td style="text-align: right;">124</td>
@@ -1438,14 +1176,9 @@
 <tr>
 <td style="text-align: left;">S250702n</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">96</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">2096</td>
@@ -1458,14 +1191,9 @@
 <tr>
 <td style="text-align: left;">S250629bs</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1811</td>
@@ -1478,11 +1206,6 @@
 <tr>
 <td style="text-align: left;">S250629ae</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1498,15 +1221,10 @@
 <tr>
 <td style="text-align: left;">S250628am</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1112</td>
 <td style="text-align: right;">273</td>
@@ -1518,15 +1236,10 @@
 <tr>
 <td style="text-align: left;">S250331o</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">582</td>
 <td style="text-align: right;">120</td>
@@ -1538,15 +1251,10 @@
 <tr>
 <td style="text-align: left;">S250328ae</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">492</td>
 <td style="text-align: right;">91</td>
@@ -1558,13 +1266,8 @@
 <tr>
 <td style="text-align: left;">S250326y</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1578,13 +1281,8 @@
 <tr>
 <td style="text-align: left;">S250319bu</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1598,15 +1296,10 @@
 <tr>
 <td style="text-align: left;">S250306ej</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">23</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">56</td>
 <td style="text-align: right;">24</td>
@@ -1618,15 +1311,10 @@
 <tr>
 <td style="text-align: left;">S250227y</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">72</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">33</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">76</td>
 <td style="text-align: right;">25</td>
@@ -1638,15 +1326,10 @@
 <tr>
 <td style="text-align: left;">S250227y</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">72</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">33</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">76</td>
 <td style="text-align: right;">25</td>
@@ -1658,13 +1341,8 @@
 <tr>
 <td style="text-align: left;">S250227e</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">94</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1678,11 +1356,6 @@
 <tr>
 <td style="text-align: left;">S250226dl</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1698,13 +1371,8 @@
 <tr>
 <td style="text-align: left;">S250223dk</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1718,15 +1386,10 @@
 <tr>
 <td style="text-align: left;">S250221gb</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">59</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">709</td>
 <td style="text-align: right;">283</td>
@@ -1738,15 +1401,10 @@
 <tr>
 <td style="text-align: left;">S250221eb</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">Glitch</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">91</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">71</td>
 <td style="text-align: right;">5</td>
@@ -1758,13 +1416,8 @@
 <tr>
 <td style="text-align: left;">S250211be</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1778,15 +1431,10 @@
 <tr>
 <td style="text-align: left;">S250211aa</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1358</td>
 <td style="text-align: right;">352</td>
@@ -1799,12 +1447,7 @@
 <td style="text-align: left;">S250208ad</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -1818,14 +1461,9 @@
 <tr>
 <td style="text-align: left;">S250207bg</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">546</td>
@@ -1838,15 +1476,10 @@
 <tr>
 <td style="text-align: left;">S250206dm</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">409</td>
 <td style="text-align: right;">139</td>
@@ -1858,15 +1491,10 @@
 <tr>
 <td style="text-align: left;">S250205bk</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">43</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">794</td>
 <td style="text-align: right;">191</td>
@@ -1878,12 +1506,7 @@
 <tr>
 <td style="text-align: left;">S250204ax</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1898,13 +1521,8 @@
 <tr>
 <td style="text-align: left;">S250202cu</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">84</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -1918,15 +1536,10 @@
 <tr>
 <td style="text-align: left;">S250202ad</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">98</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">7</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">44</td>
@@ -1938,15 +1551,10 @@
 <tr>
 <td style="text-align: left;">S250119cv</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">478</td>
 <td style="text-align: right;">126</td>
@@ -1958,11 +1566,6 @@
 <tr>
 <td style="text-align: left;">S250119ag</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1979,11 +1582,6 @@
 <td style="text-align: left;">S250118dp</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -1998,15 +1596,10 @@
 <tr>
 <td style="text-align: left;">S250118az</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">88</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">44</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1336</td>
 <td style="text-align: right;">410</td>
@@ -2018,13 +1611,8 @@
 <tr>
 <td style="text-align: left;">S250118t</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">93</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2038,14 +1626,9 @@
 <tr>
 <td style="text-align: left;">S250114ax</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">473</td>
@@ -2058,15 +1641,10 @@
 <tr>
 <td style="text-align: left;">S250109bi</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">1246</td>
 <td style="text-align: right;">386</td>
@@ -2078,11 +1656,6 @@
 <tr>
 <td style="text-align: left;">S250109f</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2098,15 +1671,10 @@
 <tr>
 <td style="text-align: left;">S250108ha</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">Glitch</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">98</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">458</td>
 <td style="text-align: right;">143</td>
@@ -2118,11 +1686,6 @@
 <tr>
 <td style="text-align: left;">S250108eo</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2139,11 +1702,6 @@
 <td style="text-align: left;">S250104v</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2159,12 +1717,7 @@
 <td style="text-align: left;">S250101k</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2178,15 +1731,10 @@
 <tr>
 <td style="text-align: left;">S241231bg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">802</td>
 <td style="text-align: right;">184</td>
@@ -2198,13 +1746,8 @@
 <tr>
 <td style="text-align: left;">S241230ev</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">92</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">9</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2218,13 +1761,8 @@
 <tr>
 <td style="text-align: left;">S241230bd</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">95</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -2238,11 +1776,6 @@
 <tr>
 <td style="text-align: left;">S241225v</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2258,15 +1791,10 @@
 <tr>
 <td style="text-align: left;">S241225c</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">626</td>
 <td style="text-align: right;">162</td>
@@ -2278,13 +1806,8 @@
 <tr>
 <td style="text-align: left;">S241210fu</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -2298,14 +1821,9 @@
 <tr>
 <td style="text-align: left;">S241210cw</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1910</td>
@@ -2318,13 +1836,8 @@
 <tr>
 <td style="text-align: left;">S241210d</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">77</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">9</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -2338,13 +1851,8 @@
 <tr>
 <td style="text-align: left;">S241201ac</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">76</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2358,15 +1866,10 @@
 <tr>
 <td style="text-align: left;">S241130be</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">53</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1350</td>
 <td style="text-align: right;">388</td>
@@ -2378,12 +1881,7 @@
 <tr>
 <td style="text-align: left;">S241130n</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2399,11 +1897,6 @@
 <td style="text-align: left;">S241129aa</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2418,15 +1911,10 @@
 <tr>
 <td style="text-align: left;">S241127aj</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">729</td>
 <td style="text-align: right;">181</td>
@@ -2438,15 +1926,10 @@
 <tr>
 <td style="text-align: left;">S241126dm</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">75</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">460</td>
 <td style="text-align: right;">68</td>
@@ -2458,11 +1941,6 @@
 <tr>
 <td style="text-align: left;">S241125n</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2479,11 +1957,6 @@
 <td style="text-align: left;">S241116cq</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2498,15 +1971,10 @@
 <tr>
 <td style="text-align: left;">S241114bi</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">782</td>
 <td style="text-align: right;">219</td>
@@ -2518,11 +1986,6 @@
 <tr>
 <td style="text-align: left;">S241114y</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2538,14 +2001,9 @@
 <tr>
 <td style="text-align: left;">S241113p</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">1400</td>
@@ -2558,12 +2016,7 @@
 <tr>
 <td style="text-align: left;">S241111bn</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2578,15 +2031,10 @@
 <tr>
 <td style="text-align: left;">S241110br</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">795</td>
 <td style="text-align: right;">214</td>
@@ -2598,15 +2046,10 @@
 <tr>
 <td style="text-align: left;">S241109bn</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">93</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">583</td>
 <td style="text-align: right;">171</td>
@@ -2618,13 +2061,8 @@
 <tr>
 <td style="text-align: left;">S241109p</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -2638,15 +2076,10 @@
 <tr>
 <td style="text-align: left;">S241104a</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">83</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">771</td>
 <td style="text-align: right;">364</td>
@@ -2658,12 +2091,7 @@
 <tr>
 <td style="text-align: left;">S241102cy</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2678,15 +2106,10 @@
 <tr>
 <td style="text-align: left;">S241102br</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">354</td>
 <td style="text-align: right;">63</td>
@@ -2699,12 +2122,7 @@
 <td style="text-align: left;">S241101ee</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -2718,15 +2136,10 @@
 <tr>
 <td style="text-align: left;">S241011k</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">89</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">232</td>
 <td style="text-align: right;">51</td>
@@ -2738,13 +2151,8 @@
 <tr>
 <td style="text-align: left;">S241009em</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">95</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2758,15 +2166,10 @@
 <tr>
 <td style="text-align: left;">S241009an</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1208</td>
 <td style="text-align: right;">365</td>
@@ -2778,13 +2181,8 @@
 <tr>
 <td style="text-align: left;">S241009l</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">93</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2798,13 +2196,8 @@
 <tr>
 <td style="text-align: left;">S241007bw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -2818,12 +2211,7 @@
 <tr>
 <td style="text-align: left;">S241006k</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2838,15 +2226,10 @@
 <tr>
 <td style="text-align: left;">S241005bo</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">16</td>
 <td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">88</td>
 <td style="text-align: right;">32</td>
@@ -2858,12 +2241,7 @@
 <tr>
 <td style="text-align: left;">S241002e</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2878,14 +2256,9 @@
 <tr>
 <td style="text-align: left;">S240930aa</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1400</td>
@@ -2898,15 +2271,10 @@
 <tr>
 <td style="text-align: left;">S240925n</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">51</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">329</td>
 <td style="text-align: right;">76</td>
@@ -2918,11 +2286,6 @@
 <tr>
 <td style="text-align: left;">S240924a</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2939,11 +2302,6 @@
 <td style="text-align: left;">S240923ct</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -2958,15 +2316,10 @@
 <tr>
 <td style="text-align: left;">S240922df</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">97</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">29</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1169</td>
 <td style="text-align: right;">306</td>
@@ -2978,14 +2331,9 @@
 <tr>
 <td style="text-align: left;">S240921cw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">1149</td>
@@ -2998,11 +2346,6 @@
 <tr>
 <td style="text-align: left;">S240920dw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3018,14 +2361,9 @@
 <tr>
 <td style="text-align: left;">S240920bz</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1660</td>
@@ -3038,11 +2376,6 @@
 <tr>
 <td style="text-align: left;">S240919bn</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3058,13 +2391,8 @@
 <tr>
 <td style="text-align: left;">S240917cb</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">63</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">14</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -3078,15 +2406,10 @@
 <tr>
 <td style="text-align: left;">S240916ar</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">64</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1496</td>
 <td style="text-align: right;">462</td>
@@ -3098,15 +2421,10 @@
 <tr>
 <td style="text-align: left;">S240915bd</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">659</td>
 <td style="text-align: right;">176</td>
@@ -3118,15 +2436,10 @@
 <tr>
 <td style="text-align: left;">S240915b</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">865</td>
 <td style="text-align: right;">185</td>
@@ -3138,15 +2451,10 @@
 <tr>
 <td style="text-align: left;">S240910ci</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">641</td>
 <td style="text-align: right;">169</td>
@@ -3158,13 +2466,8 @@
 <tr>
 <td style="text-align: left;">S240908dg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">92</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3178,11 +2481,6 @@
 <tr>
 <td style="text-align: left;">S240908bs</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3198,13 +2496,8 @@
 <tr>
 <td style="text-align: left;">S240907cg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3218,11 +2511,6 @@
 <tr>
 <td style="text-align: left;">S240902bq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3238,15 +2526,10 @@
 <tr>
 <td style="text-align: left;">S240830gn</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">40</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1236</td>
 <td style="text-align: right;">337</td>
@@ -3258,15 +2541,10 @@
 <tr>
 <td style="text-align: left;">S240825ar</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">51</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1342</td>
 <td style="text-align: right;">380</td>
@@ -3279,12 +2557,7 @@
 <td style="text-align: left;">S240813d</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -3298,15 +2571,10 @@
 <tr>
 <td style="text-align: left;">S240813c</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">1240</td>
 <td style="text-align: right;">392</td>
@@ -3318,15 +2586,10 @@
 <tr>
 <td style="text-align: left;">S240807h</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">42</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
 <td style="text-align: right;">1051</td>
 <td style="text-align: right;">326</td>
@@ -3338,13 +2601,8 @@
 <tr>
 <td style="text-align: left;">S240716b</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">97</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -3358,11 +2616,6 @@
 <tr>
 <td style="text-align: left;">S240705at</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3378,13 +2631,8 @@
 <tr>
 <td style="text-align: left;">S240703ad</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">LV</td>
@@ -3398,12 +2646,7 @@
 <tr>
 <td style="text-align: left;">S240630t</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3418,15 +2661,10 @@
 <tr>
 <td style="text-align: left;">S240629by</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1205</td>
 <td style="text-align: right;">287</td>
@@ -3438,15 +2676,10 @@
 <tr>
 <td style="text-align: left;">S240627by</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">79</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">39</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1479</td>
 <td style="text-align: right;">420</td>
@@ -3458,15 +2691,10 @@
 <tr>
 <td style="text-align: left;">S240623dg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">70</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">36</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">55</td>
 <td style="text-align: right;">17</td>
@@ -3478,14 +2706,9 @@
 <tr>
 <td style="text-align: left;">S240622h</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1655</td>
@@ -3498,13 +2721,8 @@
 <tr>
 <td style="text-align: left;">S240621em</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">42</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">14</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3518,11 +2736,6 @@
 <tr>
 <td style="text-align: left;">S240621eb</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3539,11 +2752,6 @@
 <td style="text-align: left;">S240621dy</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3558,13 +2766,8 @@
 <tr>
 <td style="text-align: left;">S240618ah</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">87</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -3578,12 +2781,7 @@
 <tr>
 <td style="text-align: left;">S240615ea</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3599,11 +2797,6 @@
 <td style="text-align: left;">S240615dg</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3618,15 +2811,10 @@
 <tr>
 <td style="text-align: left;">S240601co</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1376</td>
 <td style="text-align: right;">385</td>
@@ -3638,13 +2826,8 @@
 <tr>
 <td style="text-align: left;">S240531bp</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3658,15 +2841,10 @@
 <tr>
 <td style="text-align: left;">S240530a</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">96</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">27</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1229</td>
 <td style="text-align: right;">393</td>
@@ -3678,15 +2856,10 @@
 <tr>
 <td style="text-align: left;">S240527fv</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1131</td>
 <td style="text-align: right;">312</td>
@@ -3698,13 +2871,8 @@
 <tr>
 <td style="text-align: left;">S240527en</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3718,13 +2886,8 @@
 <tr>
 <td style="text-align: left;">S240525p</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">92</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3738,15 +2901,10 @@
 <tr>
 <td style="text-align: left;">S240520cv</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1289</td>
 <td style="text-align: right;">332</td>
@@ -3758,11 +2916,6 @@
 <tr>
 <td style="text-align: left;">S240515m</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3779,11 +2932,6 @@
 <td style="text-align: left;">S240514x</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3798,12 +2946,7 @@
 <tr>
 <td style="text-align: left;">S240513ei</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3818,15 +2961,10 @@
 <tr>
 <td style="text-align: left;">S240512r</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">47</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1077</td>
 <td style="text-align: right;">289</td>
@@ -3838,12 +2976,7 @@
 <tr>
 <td style="text-align: left;">S240511i</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3858,15 +2991,10 @@
 <tr>
 <td style="text-align: left;">S240507p</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">95</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">1395</td>
 <td style="text-align: right;">460</td>
@@ -3878,13 +3006,8 @@
 <tr>
 <td style="text-align: left;">S240505av</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">91</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -3898,11 +3021,6 @@
 <tr>
 <td style="text-align: left;">S240501an</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -3918,13 +3036,8 @@
 <tr>
 <td style="text-align: left;">S240430ca</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">93</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -3938,15 +3051,10 @@
 <tr>
 <td style="text-align: left;">S240429an</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">99</td>
 <td style="text-align: right;">12</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">14</td>
 <td style="text-align: right;">5</td>
@@ -3958,15 +3066,10 @@
 <tr>
 <td style="text-align: left;">S240428dr</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HV</td>
 <td style="text-align: right;">765</td>
 <td style="text-align: right;">177</td>
@@ -3978,15 +3081,10 @@
 <tr>
 <td style="text-align: left;">S240426s</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: left;">BNS</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">454</td>
 <td style="text-align: right;">143</td>
@@ -3998,14 +3096,9 @@
 <tr>
 <td style="text-align: left;">S240423br</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1267</td>
@@ -4018,15 +3111,10 @@
 <tr>
 <td style="text-align: left;">S240422ed</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">58</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">41</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">214</td>
 <td style="text-align: right;">64</td>
@@ -4038,13 +3126,8 @@
 <tr>
 <td style="text-align: left;">S240420aw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">47</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">29</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HLV</td>
@@ -4058,15 +3141,10 @@
 <tr>
 <td style="text-align: left;">S240413p</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">HLV</td>
 <td style="text-align: right;">510</td>
 <td style="text-align: right;">115</td>
@@ -4078,14 +3156,9 @@
 <tr>
 <td style="text-align: left;">S240406aj</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">2449</td>
@@ -4098,11 +3171,6 @@
 <tr>
 <td style="text-align: left;">S240107b</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4119,11 +3187,6 @@
 <td style="text-align: left;">S231226av</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4138,15 +3201,10 @@
 <tr>
 <td style="text-align: left;">S231224e</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">904</td>
 <td style="text-align: right;">237</td>
@@ -4158,15 +3216,10 @@
 <tr>
 <td style="text-align: left;">S231223j</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1847</td>
 <td style="text-align: right;">568</td>
@@ -4178,12 +3231,7 @@
 <tr>
 <td style="text-align: left;">S231213ap</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4198,11 +3246,6 @@
 <tr>
 <td style="text-align: left;">S231206cc</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4219,11 +3262,6 @@
 <td style="text-align: left;">S231206ca</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4238,13 +3276,8 @@
 <tr>
 <td style="text-align: left;">S231129ac</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">94</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4258,11 +3291,6 @@
 <tr>
 <td style="text-align: left;">S231127cg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4278,15 +3306,10 @@
 <tr>
 <td style="text-align: left;">S231123cg</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1148</td>
 <td style="text-align: right;">338</td>
@@ -4298,13 +3321,8 @@
 <tr>
 <td style="text-align: left;">S231119u</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">81</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4318,15 +3336,10 @@
 <tr>
 <td style="text-align: left;">S231118an</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1396</td>
 <td style="text-align: right;">377</td>
@@ -4338,13 +3351,8 @@
 <tr>
 <td style="text-align: left;">S231118ab</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4358,14 +3366,9 @@
 <tr>
 <td style="text-align: left;">S231118d</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">2352</td>
@@ -4378,14 +3381,9 @@
 <tr>
 <td style="text-align: left;">S231114n</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1965</td>
@@ -4398,15 +3396,10 @@
 <tr>
 <td style="text-align: left;">S231113bw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1431</td>
 <td style="text-align: right;">426</td>
@@ -4418,13 +3411,8 @@
 <tr>
 <td style="text-align: left;">S231113bb</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">90</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4438,13 +3426,8 @@
 <tr>
 <td style="text-align: left;">S231112ag</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">80</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">25</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4458,14 +3441,9 @@
 <tr>
 <td style="text-align: left;">S231110g</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1949</td>
@@ -4478,12 +3456,7 @@
 <tr>
 <td style="text-align: left;">S231108u</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4498,15 +3471,10 @@
 <tr>
 <td style="text-align: left;">S231104ac</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1388</td>
 <td style="text-align: right;">369</td>
@@ -4518,11 +3486,6 @@
 <tr>
 <td style="text-align: left;">S231102w</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4538,15 +3501,10 @@
 <tr>
 <td style="text-align: left;">S231030av</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">66</td>
 <td style="text-align: right;">42</td>
@@ -4558,11 +3516,6 @@
 <tr>
 <td style="text-align: left;">S231028bg</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4578,13 +3531,8 @@
 <tr>
 <td style="text-align: left;">S231020bw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">91</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4598,15 +3546,10 @@
 <tr>
 <td style="text-align: left;">S231020ba</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">98</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1111</td>
 <td style="text-align: right;">404</td>
@@ -4618,13 +3561,8 @@
 <tr>
 <td style="text-align: left;">S231014r</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4639,12 +3577,7 @@
 <td style="text-align: left;">S231008ap</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4658,13 +3591,8 @@
 <tr>
 <td style="text-align: left;">S231005ah</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">98</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4678,13 +3606,8 @@
 <tr>
 <td style="text-align: left;">S231005j</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4698,15 +3621,10 @@
 <tr>
 <td style="text-align: left;">S231001aq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">97</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">28</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1569</td>
 <td style="text-align: right;">465</td>
@@ -4718,13 +3636,8 @@
 <tr>
 <td style="text-align: left;">S230930al</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">93</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4738,11 +3651,6 @@
 <tr>
 <td style="text-align: left;">S230928cb</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4758,12 +3666,7 @@
 <tr>
 <td style="text-align: left;">S230927be</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4779,11 +3682,6 @@
 <td style="text-align: left;">S230927l</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4798,12 +3696,7 @@
 <tr>
 <td style="text-align: left;">S230924an</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4818,15 +3711,10 @@
 <tr>
 <td style="text-align: left;">S230922q</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">79</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1110</td>
 <td style="text-align: right;">313</td>
@@ -4838,12 +3726,7 @@
 <tr>
 <td style="text-align: left;">S230922g</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4858,12 +3741,7 @@
 <tr>
 <td style="text-align: left;">S230920al</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4878,12 +3756,7 @@
 <tr>
 <td style="text-align: left;">S230919bj</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4898,14 +3771,9 @@
 <tr>
 <td style="text-align: left;">S230918aq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">119</td>
@@ -4918,11 +3786,6 @@
 <tr>
 <td style="text-align: left;">S230914ak</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -4938,15 +3801,10 @@
 <tr>
 <td style="text-align: left;">S230904n</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1205</td>
 <td style="text-align: right;">375</td>
@@ -4958,13 +3816,8 @@
 <tr>
 <td style="text-align: left;">S230831e</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">95</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -4978,15 +3831,10 @@
 <tr>
 <td style="text-align: left;">S230830b</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">97</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">88</td>
-<td style="text-align: left;">BNS</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">214</td>
 <td style="text-align: right;">69</td>
@@ -4998,13 +3846,8 @@
 <tr>
 <td style="text-align: left;">S230825k</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">95</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5018,11 +3861,6 @@
 <tr>
 <td style="text-align: left;">S230824r</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5038,13 +3876,8 @@
 <tr>
 <td style="text-align: left;">S230822bm</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">91</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5058,13 +3891,8 @@
 <tr>
 <td style="text-align: left;">S230820bq</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5078,11 +3906,6 @@
 <tr>
 <td style="text-align: left;">S230819ax</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5098,11 +3921,6 @@
 <tr>
 <td style="text-align: left;">S230814r</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5119,11 +3937,6 @@
 <td style="text-align: left;">S230811n</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5138,15 +3951,10 @@
 <tr>
 <td style="text-align: left;">S230810af</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">97</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">13</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">37</td>
@@ -5158,13 +3966,8 @@
 <tr>
 <td style="text-align: left;">S230807f</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">86</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5178,13 +3981,8 @@
 <tr>
 <td style="text-align: left;">S230806ak</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5198,11 +3996,6 @@
 <tr>
 <td style="text-align: left;">S230805x</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5218,15 +4011,10 @@
 <tr>
 <td style="text-align: left;">S230731an</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1056</td>
 <td style="text-align: right;">279</td>
@@ -5238,15 +4026,10 @@
 <tr>
 <td style="text-align: left;">S230729z</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1546</td>
 <td style="text-align: right;">472</td>
@@ -5258,15 +4041,10 @@
 <tr>
 <td style="text-align: left;">S230723ac</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1686</td>
 <td style="text-align: right;">515</td>
@@ -5278,14 +4056,9 @@
 <tr>
 <td style="text-align: left;">S230715bw</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">17</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">683</td>
@@ -5298,15 +4071,10 @@
 <tr>
 <td style="text-align: left;">S230712a</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">696</td>
 <td style="text-align: right;">286</td>
@@ -5318,11 +4086,6 @@
 <tr>
 <td style="text-align: left;">S230709bi</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5338,14 +4101,9 @@
 <tr>
 <td style="text-align: left;">S230708cf</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">2056</td>
@@ -5358,14 +4116,9 @@
 <tr>
 <td style="text-align: left;">S230708bi</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">77</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">19</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">771</td>
@@ -5378,13 +4131,8 @@
 <tr>
 <td style="text-align: left;">S230708z</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">81</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5398,13 +4146,8 @@
 <tr>
 <td style="text-align: left;">S230708t</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5418,11 +4161,6 @@
 <tr>
 <td style="text-align: left;">S230707ai</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5438,14 +4176,9 @@
 <tr>
 <td style="text-align: left;">S230706ah</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">2143</td>
@@ -5459,12 +4192,7 @@
 <td style="text-align: left;">S230704f</td>
 <td style="text-align: left;">True</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">99</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5478,14 +4206,9 @@
 <tr>
 <td style="text-align: left;">S230702an</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">2567</td>
@@ -5498,15 +4221,10 @@
 <tr>
 <td style="text-align: left;">S230630bq</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">60</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">73</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1150</td>
 <td style="text-align: right;">360</td>
@@ -5518,13 +4236,8 @@
 <tr>
 <td style="text-align: left;">S230630am</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">81</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
@@ -5538,11 +4251,6 @@
 <tr>
 <td style="text-align: left;">S230628ax</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5558,15 +4266,10 @@
 <tr>
 <td style="text-align: left;">S230627c</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">278</td>
 <td style="text-align: right;">68</td>
@@ -5578,12 +4281,7 @@
 <tr>
 <td style="text-align: left;">S230624av</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5598,15 +4296,10 @@
 <tr>
 <td style="text-align: left;">S230622ba</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">NSBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">411</td>
 <td style="text-align: right;">119</td>
@@ -5618,12 +4311,7 @@
 <tr>
 <td style="text-align: left;">S230609u</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5638,12 +4326,7 @@
 <tr>
 <td style="text-align: left;">S230608as</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5658,14 +4341,9 @@
 <tr>
 <td style="text-align: left;">S230606d</td>
 <td style="text-align: left;">True</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1818</td>
@@ -5678,15 +4356,10 @@
 <tr>
 <td style="text-align: left;">S230605o</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">1096</td>
 <td style="text-align: right;">333</td>
@@ -5698,11 +4371,6 @@
 <tr>
 <td style="text-align: left;">S230601bf</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5718,14 +4386,9 @@
 <tr>
 <td style="text-align: left;">S230524x</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">Glitch</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">84</td>
@@ -5738,12 +4401,7 @@
 <tr>
 <td style="text-align: left;">S230520ae</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">BBH</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0</td>
@@ -5758,15 +4416,10 @@
 <tr>
 <td style="text-align: left;">S230518h</td>
 <td style="text-align: left;">True</td>
-<td style="text-align: right;">0</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">71</td>
-<td style="text-align: left;">BNS</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
 <td style="text-align: left;">HL</td>
 <td style="text-align: right;">276</td>
 <td style="text-align: right;">79</td>
